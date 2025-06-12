@@ -49,10 +49,10 @@ const OrderListPage = () => {
   };
 
   return (
-    <div className="min-h-screen p-6">
+    <div className="min-h-screen mx-auto max-w-[1360px] px-6 pb-6 mt-[54px]">
       <div className="bg-gray01 rounded-lg overflow-hidden">
         <div className="px-6 py-4">
-          <h2 className="text-3xl font-semibold text-gray10">주문 목록</h2>
+          <h2 className="text-3xl font-semibold text-gray10 mb-2">주문 목록</h2>
         </div>
 
         <div className="overflow-x-auto border border-gray04 rounded-lg">
