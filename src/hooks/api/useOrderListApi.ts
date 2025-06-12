@@ -29,6 +29,8 @@ export const useGetOrderListApi = ({
       return lastItem.orderItemId;
     },
     initialPageParam: undefined as number | undefined,
+    enabled: !!popupId,
+    staleTime: 0, // 항상 캐시 무효화 (websocket과 동기화)
   });
 };
 

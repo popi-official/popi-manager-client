@@ -13,6 +13,7 @@ export const getOrderList = async ({
   lastOrderItemId,
   popupId,
   size,
+  popupId,
 }: GetOrderListRequest): ApiResponse<GetOrderListResponse> => {
   const response = await api.get(`/order-items/${popupId}`, {
     params: {

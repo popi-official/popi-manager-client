@@ -14,7 +14,7 @@ export const QUERY_KEYS = {
     INDEX: ["itemList"] as const,
   },
   ORDER_ITEM: {
-    INDEX: ["orderItem"] as const,
+    INDEX: ["orderList"] as const,
   },
   POPUP: {
     INDEX: ["popUpList"] as const,
