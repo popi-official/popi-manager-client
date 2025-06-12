@@ -1,21 +1,16 @@
 import { getStockNotificationList } from "@/apis/StockNotificationListApi";
+import { QUERY_KEYS } from "@/hooks/api/queryKey";
 import { PopUpIdRequest } from "@/types/api/ApiRequestType";
 import { useQuery } from "@tanstack/react-query";
 
 export const useStockNotificationListApi = ({ popupId }: PopUpIdRequest) => {
-  const query = useQuery({
-    queryKey: ["stockNotification"],
+  const { data, isLoading, isError } = useQuery({
+    queryKey: QUERY_KEYS.STOCK_NOTIFICATION.INDEX,
     queryFn: async () => {
       const response = await getStockNotificationList({ popupId });
       return response.data;
     },
-    refetchInterval: 10 * 60 * 1000,
-    refetchIntervalInBackground: true,
   });
 
-  return {
-    notifications: query.data,
-    isLoading: query.isLoading,
-    error: query.error,
-  };
+  return { data, isLoading, isError };
 };

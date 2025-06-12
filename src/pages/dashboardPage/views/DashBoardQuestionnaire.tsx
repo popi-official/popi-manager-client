@@ -59,7 +59,8 @@ const isZeroTotal = (questionnaireData: QuestionnaireResponse): boolean => {
 export default function DashBoardQuestionnaire() {
   const [selectedQuestion, setSelectedQuestion] = useState(options[0]);
   const popupId = usePopUpReadStore(state => state.popupId);
-  const { surveys, isLoading, isError } = useQuestionnaireApi({ popupId });
+  const { data, isLoading, isError } = useQuestionnaireApi({ popupId });
+  const surveys = data?.surveys;
 
   const handleQuestion = (selected: string) => {
     setSelectedQuestion(selected);

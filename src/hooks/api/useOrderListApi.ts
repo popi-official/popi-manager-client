@@ -1,5 +1,6 @@
 import { getOrderList, patchChangeOrderItemStatus } from "@/apis/OrderListApi";
 import { PatchChangeOrderItemRequest } from "@/types/api/ApiRequestType";
+import { QUERY_KEYS } from "@/hooks/api/queryKey";
 import {
   useInfiniteQuery,
   useMutation,
@@ -14,7 +15,7 @@ export const useGetOrderListApi = ({
   popupId: number;
 }) => {
   return useInfiniteQuery({
-    queryKey: ["orderItem"],
+    queryKey: QUERY_KEYS.ORDER_ITEM.INDEX,
     queryFn: ({ pageParam }) =>
       getOrderList({ lastOrderItemId: pageParam, size, popupId }),
     getNextPageParam: response => {

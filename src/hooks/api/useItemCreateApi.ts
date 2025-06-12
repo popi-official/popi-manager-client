@@ -2,6 +2,7 @@ import { postCreatePresignedUrl, putImageToS3 } from "@/apis/image/ImageApi";
 import { patchItem, postItemCreate } from "@/apis/ItemCreateApi";
 import { postItemAddExcel } from "@/apis/ItemListApi";
 import { PopUpIdRequest } from "@/types/api/ApiRequestType";
+import { QUERY_KEYS } from "@/hooks/api/queryKey";
 import { ErrorMessage } from "@/utils/ErrorMessage";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
@@ -14,7 +15,7 @@ export const useItemCreateApi = ({ popupId }: PopUpIdRequest) => {
     mutationFn: postCreatePresignedUrl,
     throwOnError: true,
     onError: error => {
-      throw new Error(`PresignedUrl 발급 에러 : ${ErrorMessage(error)}`);
+      throw new Error(`상품 PresignedUrl 발급 에러 : ${ErrorMessage(error)}`);
     },
   });
 
@@ -22,14 +23,14 @@ export const useItemCreateApi = ({ popupId }: PopUpIdRequest) => {
     mutationFn: putImageToS3,
     throwOnError: true,
     onError: error => {
-      throw new Error(`이미지 S3 업로드 에러 : ${ErrorMessage(error)}`);
+      throw new Error(`상품 이미지 S3 업로드 에러 : ${ErrorMessage(error)}`);
     },
   });
 
   const itemCreateMutation = useMutation({
     mutationFn: postItemCreate,
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["itemList"] });
+      queryClient.invalidateQueries({ queryKey: QUERY_KEYS.ITEM.INDEX });
     },
     throwOnError: true,
     onError: error => {
@@ -40,11 +41,11 @@ export const useItemCreateApi = ({ popupId }: PopUpIdRequest) => {
   const patchItemMutation = useMutation({
     mutationFn: patchItem,
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["itemList"] });
+      queryClient.invalidateQueries({ queryKey: QUERY_KEYS.ITEM.INDEX });
     },
     throwOnError: true,
     onError: error => {
-      throw new Error(`아이템 패치 에러 : ${ErrorMessage(error)}`);
+      throw new Error(`상품 수정 에러 : ${ErrorMessage(error)}`);
     },
   });
 
@@ -59,12 +60,12 @@ export const useItemCreateApi = ({ popupId }: PopUpIdRequest) => {
       }),
     onSuccess: () => {
       setOnProgress(100);
-      queryClient.invalidateQueries({ queryKey: ["itemList"] });
+      queryClient.invalidateQueries({ queryKey: QUERY_KEYS.ITEM.INDEX });
     },
     throwOnError: true,
     onError: error => {
       setOnProgress(0);
-      throw new Error(`엑셀 업로드 오류 : ${ErrorMessage(error)}`);
+      throw new Error(`전체 상품 엑셀 업로드 에러 : ${ErrorMessage(error)}`);
     },
   });
 
