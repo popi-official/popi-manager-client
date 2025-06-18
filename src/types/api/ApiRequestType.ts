@@ -5,6 +5,8 @@ export type LoginRequest = {
   password: string;
 };
 
+export type PopUpIdRequest = { popupId: number };
+
 export type ItemCreateRequest = {
   popupId: number;
   name: string;

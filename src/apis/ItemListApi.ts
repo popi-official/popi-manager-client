@@ -3,24 +3,33 @@ import {
   GetItemListResponse,
   NoResponse,
 } from "@/types/api/ApiResponseType";
-import { ItemAddExcelRequest } from "@/types/api/ApiRequestType";
+import {
+  ItemAddExcelRequest,
+  PopUpIdRequest,
+} from "@/types/api/ApiRequestType";
 import { AxiosProgressEvent } from "axios";
-import { apiPopUp } from "./config/PopUpApi";
+import { api } from "./config/Axios";
 
-export const getItemList = async (): ApiResponse<GetItemListResponse> => {
-  const response = await apiPopUp.get(`/items`);
+export const getItemList = async ({
+  popupId,
+}: PopUpIdRequest): ApiResponse<GetItemListResponse> => {
+  const response = await api.get(`/popups/${popupId}/items`);
   return response.data;
 };
 
-export const deleteItem = async (itemId: string): ApiResponse<NoResponse> => {
-  const response = await apiPopUp.delete(`/items/${itemId}`);
+export const deleteItem = async ({
+  itemId,
+  popupId,
+}: { itemId: string } & PopUpIdRequest): ApiResponse<NoResponse> => {
+  const response = await api.delete(`/popups/${popupId}/items/${itemId}`);
   return response.data;
 };
 
 export const postItemAddExcel = async ({
   excelFile,
   onProgress,
-}: ItemAddExcelRequest): ApiResponse<NoResponse> => {
+  popupId,
+}: ItemAddExcelRequest & PopUpIdRequest): ApiResponse<NoResponse> => {
   const formData = new FormData();
   formData.append("itemFile", excelFile);
 
@@ -38,6 +47,10 @@ export const postItemAddExcel = async ({
     },
   };
 
-  const response = await apiPopUp.post(`/items/excel`, formData, config);
+  const response = await api.post(
+    `/popups/${popupId}/items/excel`,
+    formData,
+    config,
+  );
   return response.data;
 };

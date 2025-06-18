@@ -4,9 +4,11 @@ import { useItemListApi } from "@/hooks/api/useItemListApi";
 import ItemCreateExcelModal from "./views/ItemCreateExcelModal";
 import { useState } from "react";
 import ConditionalComponent from "@/components/common/ConditionalComponent";
+import { usePopUpReadStore } from "@/stores/usePopUpReadStore";
 
 const ItemListPage = () => {
-  const { data } = useItemListApi();
+  const popupId = usePopUpReadStore(state => state.popupId);
+  const { data } = useItemListApi({ popupId });
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 

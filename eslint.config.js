@@ -62,7 +62,7 @@ export default tseslint.config(
     },
   },
   {
-    files: ["**/useDaumPostcode.tsx", "**/PopUpCDFlow.spec.ts"],
+    files: ["**/useDaumPostcode.tsx", "**/PopUpCDFlow.spec.ts", "**/Axios.ts"],
     rules: {
       "@typescript-eslint/no-explicit-any": "off",
     },

@@ -1,11 +1,12 @@
 import { postCreatePresignedUrl, putImageToS3 } from "@/apis/image/ImageApi";
 import { patchItem, postItemCreate } from "@/apis/ItemCreateApi";
 import { postItemAddExcel } from "@/apis/ItemListApi";
+import { PopUpIdRequest } from "@/types/api/ApiRequestType";
 import { ErrorMessage } from "@/utils/ErrorMessage";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
 
-export const useItemCreateApi = () => {
+export const useItemCreateApi = ({ popupId }: PopUpIdRequest) => {
   const queryClient = useQueryClient();
   const [onProgress, setOnProgress] = useState<number>(0);
 
@@ -54,6 +55,7 @@ export const useItemCreateApi = () => {
         onProgress: percentage => {
           setOnProgress(percentage);
         },
+        popupId,
       }),
     onSuccess: () => {
       setOnProgress(100);

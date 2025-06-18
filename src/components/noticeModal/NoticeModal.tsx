@@ -9,13 +9,15 @@ type Props = {
 };
 
 export default function NoticeModal({ onClose }: Props) {
-  const popUpName = usePopUpReadStore.getState().name;
+  const { name, popupId } = usePopUpReadStore();
   const modalRef = useRef<HTMLDivElement>(null);
 
   const { realtimeNotis, historicalNotis, setHistoricalNotis } =
     useNotificationStore();
 
-  const { notifications: initialNotis } = useStockNotificationListApi();
+  const { notifications: initialNotis } = useStockNotificationListApi({
+    popupId,
+  });
 
   // 기존 알림 세팅
   useEffect(() => {
@@ -59,7 +61,7 @@ export default function NoticeModal({ onClose }: Props) {
             <NoticeItem
               key={item.notificationId}
               popularity={item.popularity}
-              popUp={popUpName}
+              popUp={name}
               name={item.name ?? ""}
               minStock={item.minStock ?? 0}
               notifiedAt={item.notifiedAt ?? ""}

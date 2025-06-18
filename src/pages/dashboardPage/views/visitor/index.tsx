@@ -6,9 +6,11 @@ import NoDataComp from "@/pages/dashboardPage/views/@common/NoDataComp";
 import QueryComponent from "@/components/common/QueryComponent";
 import Skeleton from "@/components/ui/Skeleton";
 import Label from "@/pages/dashboardPage/views/visitor/Label";
+import { usePopUpReadStore } from "@/stores/usePopUpReadStore";
 
 const Visitor = () => {
-  const { data, isLoading, isError } = useVisitorApi();
+  const popupId = usePopUpReadStore(state => state.popupId);
+  const { data, isLoading, isError } = useVisitorApi({ popupId });
   const gender = data?.gender;
   const age = data?.age;
   const isEmpty = !gender || gender.length === 0 || !age || age.length === 0;

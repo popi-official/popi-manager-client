@@ -9,10 +9,12 @@ import Skeleton from "@/components/ui/Skeleton";
 import NoDataComp from "@/pages/dashboardPage/views/@common/NoDataComp";
 import QueryComponent from "@/components/common/QueryComponent";
 import CountCard from "@/pages/dashboardPage/views/@common/CountCard";
+import { usePopUpReadStore } from "@/stores/usePopUpReadStore";
 
 const Reservation = () => {
-  const entrants = useTodayEntrantsApi();
-  const reservations = useTodayReservationsApi();
+  const popupId = usePopUpReadStore(state => state.popupId);
+  const entrants = useTodayEntrantsApi({ popupId });
+  const reservations = useTodayReservationsApi({ popupId });
 
   const cardInfo = [
     {

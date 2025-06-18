@@ -4,9 +4,15 @@ import QueryComponent from "@/components/common/QueryComponent";
 import NoDataComp from "@/pages/dashboardPage/views/@common/NoDataComp";
 import BestItemCard from "@/pages/dashboardPage/views/bestItem/BestItemCard";
 import Title from "@/pages/dashboardPage/views/@common/Title";
+import { usePopUpReadStore } from "@/stores/usePopUpReadStore";
 
 const BestItem = () => {
-  const { data: bestItemData, isLoading, isError } = useBestItemsApi();
+  const popupId = usePopUpReadStore(state => state.popupId);
+  const {
+    data: bestItemData,
+    isLoading,
+    isError,
+  } = useBestItemsApi({ popupId });
 
   return (
     <div data-testid="dashboard-bestItems">

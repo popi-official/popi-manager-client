@@ -6,6 +6,7 @@ import { useState } from "react";
 import { useItemDeleteApi } from "@/hooks/api/useItemListApi";
 import { useNavigate } from "react-router-dom";
 import { useSelectedItemStore } from "@/stores/useSelectedItemStore";
+import { usePopUpReadStore } from "@/stores/usePopUpReadStore";
 
 type Props = {
   displayName: string;
@@ -13,9 +14,10 @@ type Props = {
 };
 
 export default function ItemDisplay({ displayName, items }: Props) {
+  const popupId = usePopUpReadStore(state => state.popupId);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isDeleteConfirmOpen, setIsDeleteConfirmOpen] = useState(false);
-  const { deleteItemMutation } = useItemDeleteApi();
+  const { deleteItemMutation } = useItemDeleteApi({ popupId });
   const { selectedItem, setSelectedItem, resetSelectedItem } =
     useSelectedItemStore();
   const navigate = useNavigate();

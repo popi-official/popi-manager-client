@@ -71,7 +71,7 @@ export default function OrderListItem({
         {item.status !== "PENDING" ? (
           <div>
             <span className="text-lg font-semibold text-gray10 w-20 px-2 py-1 ">
-              {item.realCount}
+              {item.realCount === -1 ? "-" : item.realCount}
             </span>
           </div>
         ) : (

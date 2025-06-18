@@ -4,9 +4,11 @@ import { ConversionRateChart } from "@/pages/dashboardPage/views/ConversionRateC
 import Title from "@/pages/dashboardPage/views/@common/Title";
 import Skeleton from "@/components/ui/Skeleton";
 import QueryComponent from "@/components/common/QueryComponent";
+import { usePopUpReadStore } from "@/stores/usePopUpReadStore";
 
 export default function DashBoardConversionRate() {
-  const { data, isLoading, isError } = useConversionApi();
+  const popupId = usePopUpReadStore(state => state.popupId);
+  const { data, isLoading, isError } = useConversionApi({ popupId });
 
   return (
     <div className="flex flex-col" data-testid="dashboard-conversionRate">

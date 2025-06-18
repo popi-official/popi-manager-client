@@ -5,8 +5,10 @@ import {
 } from "@/types/api/ApiRequestType";
 import { useItemCreateApi } from "@/hooks/api/useItemCreateApi";
 import { ImageType } from "@/types/ImageType";
+import { usePopUpReadStore } from "@/stores/usePopUpReadStore";
 
 export const useItemCreate = () => {
+  const popupId = usePopUpReadStore(state => state.popupId);
   const {
     getItemPresignedUrlMutation,
     uploadItemImgToS3Mutation,
@@ -14,7 +16,7 @@ export const useItemCreate = () => {
     patchItemMutation,
     onProgress,
     postItemAddExcelMutation,
-  } = useItemCreateApi();
+  } = useItemCreateApi({ popupId });
 
   const uploadImage = async (imageFile: File): Promise<string> => {
     const imageFileExtension = imageFile.name
@@ -64,6 +66,7 @@ export const useItemCreate = () => {
       const response = await patchItemMutation.mutateAsync({
         itemId,
         minStock,
+        popupId,
       });
 
       return response.data;

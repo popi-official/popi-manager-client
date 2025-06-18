@@ -4,9 +4,11 @@ import Title from "@/pages/dashboardPage/views/@common/Title";
 import NoDataComp from "@/pages/dashboardPage/views/@common/NoDataComp";
 import Skeleton from "@/components/ui/Skeleton";
 import QueryComponent from "@/components/common/QueryComponent";
+import { usePopUpReadStore } from "@/stores/usePopUpReadStore";
 
 const CustomerTransaction = () => {
-  const { data, isLoading, isError } = useAvgPurchaseApi();
+  const popupId = usePopUpReadStore(state => state.popupId);
+  const { data, isLoading, isError } = useAvgPurchaseApi({ popupId });
 
   const cardInfo = [
     {

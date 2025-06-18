@@ -9,6 +9,7 @@ import NoDataComp from "@/pages/dashboardPage/views/@common/NoDataComp";
 import Skeleton from "@/components/ui/Skeleton";
 import QueryComponent from "@/components/common/QueryComponent";
 import DropdownFilter from "@/pages/dashboardPage/views/@common/DropdownFilter";
+import { usePopUpReadStore } from "@/stores/usePopUpReadStore";
 
 const options = ["1번 문항", "2번 문항", "3번 문항", "4번 문항"];
 const SIZE = 300;
@@ -57,7 +58,8 @@ const isZeroTotal = (questionnaireData: QuestionnaireResponse): boolean => {
 
 export default function DashBoardQuestionnaire() {
   const [selectedQuestion, setSelectedQuestion] = useState(options[0]);
-  const { surveys, isLoading, isError } = useQuestionnaireApi();
+  const popupId = usePopUpReadStore(state => state.popupId);
+  const { surveys, isLoading, isError } = useQuestionnaireApi({ popupId });
 
   const handleQuestion = (selected: string) => {
     setSelectedQuestion(selected);

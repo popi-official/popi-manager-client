@@ -8,10 +8,12 @@ import QueryComponent from "@/components/common/QueryComponent";
 import Skeleton from "@/components/ui/Skeleton";
 import CongestionChart from "@/pages/dashboardPage/views/congestion/CongestionChart";
 import CongestionDaySelector from "@/pages/dashboardPage/views/congestion/CongestionDaySelector";
+import { usePopUpReadStore } from "@/stores/usePopUpReadStore";
 
 const Congestion = () => {
   const [selectedDay, setSelectedDay] = useState<DayOfWeek>(Days[0]);
-  const { data, isLoading, isError } = useCongestionApi();
+  const popupId = usePopUpReadStore(state => state.popupId);
+  const { data, isLoading, isError } = useCongestionApi({ popupId });
 
   // 오늘 요일에 맞는 버튼 자동 선택
   useEffect(() => {

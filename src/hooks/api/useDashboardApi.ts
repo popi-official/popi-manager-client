@@ -10,12 +10,13 @@ import {
   getVisitor,
 } from "@/apis/DashBoardApi";
 import { VisitorResponse } from "@/types/api/ApiResponseType";
+import { PopUpIdRequest } from "@/types/api/ApiRequestType";
 
-export const useCongestionApi = () => {
+export const useCongestionApi = ({ popupId }: PopUpIdRequest) => {
   const { data, isError, isLoading } = useQuery({
     queryKey: ["congestion", "dashboard"],
     queryFn: async () => {
-      const res = await getCongestion();
+      const res = await getCongestion({ popupId });
       return res.data;
     },
   });
@@ -23,11 +24,11 @@ export const useCongestionApi = () => {
   return { data, isError, isLoading };
 };
 
-export const useAvgPurchaseApi = () => {
+export const useAvgPurchaseApi = ({ popupId }: PopUpIdRequest) => {
   const { data, isError, isLoading } = useQuery({
     queryKey: ["avgPurchase", "dashboard"],
     queryFn: async () => {
-      const res = await getAvgPurchase();
+      const res = await getAvgPurchase({ popupId });
       return res.data;
     },
   });
@@ -35,11 +36,11 @@ export const useAvgPurchaseApi = () => {
   return { data, isError, isLoading };
 };
 
-export const useTodayEntrantsApi = () => {
+export const useTodayEntrantsApi = ({ popupId }: PopUpIdRequest) => {
   const { data, isError, isLoading } = useQuery({
     queryKey: ["todayEntrants", "dashboard"],
     queryFn: async () => {
-      const res = await getTodayEntrants();
+      const res = await getTodayEntrants({ popupId });
       return res.data;
     },
   });
@@ -47,11 +48,11 @@ export const useTodayEntrantsApi = () => {
   return { data, isError, isLoading };
 };
 
-export const useTodayReservationsApi = () => {
+export const useTodayReservationsApi = ({ popupId }: PopUpIdRequest) => {
   const { data, isError, isLoading } = useQuery({
     queryKey: ["todayReservation", "dashboard"],
     queryFn: async () => {
-      const res = await getTodayReservations();
+      const res = await getTodayReservations({ popupId });
       return res.data;
     },
   });
@@ -59,11 +60,11 @@ export const useTodayReservationsApi = () => {
   return { data, isError, isLoading };
 };
 
-export const useBestItemsApi = () => {
+export const useBestItemsApi = ({ popupId }: PopUpIdRequest) => {
   const { data, isError, isLoading } = useQuery({
     queryKey: ["top3", "dashboard"],
     queryFn: async () => {
-      const res = await getBestItems();
+      const res = await getBestItems({ popupId });
       return res.data;
     },
   });
@@ -71,11 +72,11 @@ export const useBestItemsApi = () => {
   return { data, isError, isLoading };
 };
 
-export const useQuestionnaireApi = () => {
+export const useQuestionnaireApi = ({ popupId }: PopUpIdRequest) => {
   const { data, isLoading, isError } = useQuery({
     queryKey: ["questionnaire", "dashboard"],
     queryFn: async () => {
-      const response = await getQuestionnaire();
+      const response = await getQuestionnaire({ popupId });
       return response.data;
     },
   });
@@ -88,11 +89,11 @@ export const useQuestionnaireApi = () => {
   };
 };
 
-export const useConversionApi = () => {
+export const useConversionApi = ({ popupId }: PopUpIdRequest) => {
   const { data, isError, isLoading } = useQuery({
     queryKey: ["conversion", "dashboard"],
     queryFn: async () => {
-      const res = await getConversion();
+      const res = await getConversion({ popupId });
       return res.data;
     },
   });
@@ -100,11 +101,11 @@ export const useConversionApi = () => {
   return { data, isError, isLoading };
 };
 
-export const useVisitorApi = () => {
+export const useVisitorApi = ({ popupId }: PopUpIdRequest) => {
   const { data, isLoading, isError } = useQuery<VisitorResponse>({
     queryKey: ["visitor", "dashboard"],
     queryFn: async () => {
-      const res = await getVisitor();
+      const res = await getVisitor({ popupId });
       return res.data;
     },
   });

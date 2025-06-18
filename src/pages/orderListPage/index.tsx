@@ -112,7 +112,7 @@ const OrderListPage = () => {
       </div>
 
       <div className="mt-8 flex items-center justify-center">
-        {hasNextPage ? (
+        {hasNextPage && (
           <button
             onClick={() => fetchNextPage()}
             disabled={isFetchingNextPage}
@@ -120,8 +120,6 @@ const OrderListPage = () => {
           >
             {isFetchingNextPage ? "로딩 중" : "더보기"}
           </button>
-        ) : (
-          <p className="text-gray08 text-xl">모든 주문을 확인했습니다.</p>
         )}
       </div>
 
