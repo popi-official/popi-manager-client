@@ -67,7 +67,6 @@ export type GetOrderListRequest = {
   lastOrderItemId: number | undefined;
   popupId: number;
   size: number;
-  popupId: number;
 };
 
 export type PatchChangeOrderItemRequest = {
