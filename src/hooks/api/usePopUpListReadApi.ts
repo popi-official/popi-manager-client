@@ -4,7 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 
 export const usePopUpListReadApi = () => {
   const { data, isLoading, isError } = useQuery({
-    queryKey: QUERY_KEYS.POPUP.INDEX,
+    queryKey: QUERY_KEYS.POPUP.LIST(),
     queryFn: async () => {
       const response = await getPopUpListRead();
       return response.data;

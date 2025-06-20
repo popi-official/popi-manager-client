@@ -30,7 +30,9 @@ export const useItemCreateApi = ({ popupId }: PopUpIdRequest) => {
   const itemCreateMutation = useMutation({
     mutationFn: postItemCreate,
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: QUERY_KEYS.ITEM.INDEX });
+      queryClient.invalidateQueries({
+        queryKey: QUERY_KEYS.ITEM.LIST(String(popupId)),
+      });
     },
     throwOnError: true,
     onError: error => {
@@ -41,7 +43,9 @@ export const useItemCreateApi = ({ popupId }: PopUpIdRequest) => {
   const patchItemMutation = useMutation({
     mutationFn: patchItem,
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: QUERY_KEYS.ITEM.INDEX });
+      queryClient.invalidateQueries({
+        queryKey: QUERY_KEYS.ITEM.LIST(String(popupId)),
+      });
     },
     throwOnError: true,
     onError: error => {
@@ -60,7 +64,9 @@ export const useItemCreateApi = ({ popupId }: PopUpIdRequest) => {
       }),
     onSuccess: () => {
       setOnProgress(100);
-      queryClient.invalidateQueries({ queryKey: QUERY_KEYS.ITEM.INDEX });
+      queryClient.invalidateQueries({
+        queryKey: QUERY_KEYS.ITEM.LIST(String(popupId)),
+      });
     },
     throwOnError: true,
     onError: error => {

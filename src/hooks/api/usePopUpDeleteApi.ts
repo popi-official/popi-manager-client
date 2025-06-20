@@ -8,7 +8,7 @@ export const usePopUpDeleteApi = () => {
   const deletePopUpMutation = useMutation({
     mutationFn: (popUpId: string) => deletePopUp(popUpId),
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: QUERY_KEYS.POPUP.INDEX });
+      queryClient.invalidateQueries({ queryKey: QUERY_KEYS.POPUP.LIST() });
     },
     throwOnError: true,
     onError: error => {

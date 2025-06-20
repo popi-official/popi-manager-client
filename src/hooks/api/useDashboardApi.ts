@@ -15,7 +15,7 @@ import { QUERY_KEYS } from "@/hooks/api/queryKey";
 
 export const useCongestionApi = ({ popupId }: PopUpIdRequest) => {
   const { data, isError, isLoading } = useQuery({
-    queryKey: QUERY_KEYS.DASHBOARD.BESTITEM,
+    queryKey: QUERY_KEYS.DASHBOARD.CONGESTION(String(popupId)),
     queryFn: async () => {
       const response = await getCongestion({ popupId });
       return response.data;
@@ -27,7 +27,7 @@ export const useCongestionApi = ({ popupId }: PopUpIdRequest) => {
 
 export const useAvgPurchaseApi = ({ popupId }: PopUpIdRequest) => {
   const { data, isError, isLoading } = useQuery({
-    queryKey: QUERY_KEYS.DASHBOARD.CONGESTION,
+    queryKey: QUERY_KEYS.DASHBOARD.AVG_PURCHASE(String(popupId)),
     queryFn: async () => {
       const response = await getAvgPurchase({ popupId });
       return response.data;
@@ -39,7 +39,7 @@ export const useAvgPurchaseApi = ({ popupId }: PopUpIdRequest) => {
 
 export const useTodayEntrantsApi = ({ popupId }: PopUpIdRequest) => {
   const { data, isError, isLoading } = useQuery({
-    queryKey: QUERY_KEYS.DASHBOARD.TODAY_RESERVATION,
+    queryKey: QUERY_KEYS.DASHBOARD.TODAY_ENTRANT(String(popupId)),
     queryFn: async () => {
       const response = await getTodayEntrants({ popupId });
       return response.data;
@@ -51,7 +51,7 @@ export const useTodayEntrantsApi = ({ popupId }: PopUpIdRequest) => {
 
 export const useTodayReservationsApi = ({ popupId }: PopUpIdRequest) => {
   const { data, isError, isLoading } = useQuery({
-    queryKey: QUERY_KEYS.DASHBOARD.TODAY_ENTRANT,
+    queryKey: QUERY_KEYS.DASHBOARD.TODAY_RESERVATION(String(popupId)),
     queryFn: async () => {
       const response = await getTodayReservations({ popupId });
       return response.data;
@@ -63,7 +63,7 @@ export const useTodayReservationsApi = ({ popupId }: PopUpIdRequest) => {
 
 export const useBestItemsApi = ({ popupId }: PopUpIdRequest) => {
   const { data, isError, isLoading } = useQuery({
-    queryKey: QUERY_KEYS.DASHBOARD.AVG_PURCHASE,
+    queryKey: QUERY_KEYS.DASHBOARD.BESTITEM(String(popupId)),
     queryFn: async () => {
       const response = await getBestItems({ popupId });
       return response.data;
@@ -75,7 +75,7 @@ export const useBestItemsApi = ({ popupId }: PopUpIdRequest) => {
 
 export const useQuestionnaireApi = ({ popupId }: PopUpIdRequest) => {
   const { data, isLoading, isError } = useQuery({
-    queryKey: QUERY_KEYS.DASHBOARD.QUESTIONNAIRE,
+    queryKey: QUERY_KEYS.DASHBOARD.QUESTIONNAIRE(String(popupId)),
     queryFn: async () => {
       const responseponse = await getQuestionnaire({ popupId });
       return responseponse.data;
@@ -87,7 +87,7 @@ export const useQuestionnaireApi = ({ popupId }: PopUpIdRequest) => {
 
 export const useConversionApi = ({ popupId }: PopUpIdRequest) => {
   const { data, isError, isLoading } = useQuery({
-    queryKey: QUERY_KEYS.DASHBOARD.CONVERSION,
+    queryKey: QUERY_KEYS.DASHBOARD.CONVERSION(String(popupId)),
     queryFn: async () => {
       const response = await getConversion({ popupId });
       return response.data;
@@ -99,7 +99,7 @@ export const useConversionApi = ({ popupId }: PopUpIdRequest) => {
 
 export const useVisitorApi = ({ popupId }: PopUpIdRequest) => {
   const { data, isLoading, isError } = useQuery<VisitorResponse>({
-    queryKey: ["visitor", "dashboard"],
+    queryKey: QUERY_KEYS.DASHBOARD.VISITOR(String(popupId)),
     queryFn: async () => {
       const response = await getVisitor({ popupId });
       return response.data;

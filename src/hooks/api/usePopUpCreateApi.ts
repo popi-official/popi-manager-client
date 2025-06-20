@@ -25,7 +25,7 @@ export const usePopUpCreateApi = () => {
   const postPopUpCreateMutation = useMutation({
     mutationFn: postPopUpCreate,
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: QUERY_KEYS.POPUP.INDEX });
+      queryClient.invalidateQueries({ queryKey: QUERY_KEYS.POPUP.LIST() });
     },
     throwOnError: true,
     onError: error => {

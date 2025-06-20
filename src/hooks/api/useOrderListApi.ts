@@ -15,7 +15,7 @@ export const useGetOrderListApi = ({
   popupId: number;
 }) => {
   return useInfiniteQuery({
-    queryKey: QUERY_KEYS.ORDER_ITEM.INDEX,
+    queryKey: QUERY_KEYS.ORDER_ITEM.LIST(String(popupId), { size }),
     queryFn: ({ pageParam }) =>
       getOrderList({ lastOrderItemId: pageParam, size, popupId }),
     getNextPageParam: response => {
@@ -39,6 +39,9 @@ export const usePatchChangeOrderItemStatus = () => {
   return useMutation({
     mutationFn: ({ orderItemId, qty, status }: PatchChangeOrderItemRequest) =>
       patchChangeOrderItemStatus({ orderItemId, qty, status }),
-    onSuccess: () => queryClient.invalidateQueries({ queryKey: ["orderItem"] }),
+    onSuccess: () =>
+      queryClient.invalidateQueries({
+        queryKey: QUERY_KEYS.ORDER_ITEM.INDEX(),
+      }),
   });
 };

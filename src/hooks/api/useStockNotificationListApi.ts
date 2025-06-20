@@ -5,7 +5,7 @@ import { useQuery } from "@tanstack/react-query";
 
 export const useStockNotificationListApi = ({ popupId }: PopUpIdRequest) => {
   const { data, isLoading, isError } = useQuery({
-    queryKey: QUERY_KEYS.STOCK_NOTIFICATION.INDEX,
+    queryKey: QUERY_KEYS.STOCK_NOTIFICATION.LIST(),
     queryFn: async () => {
       const response = await getStockNotificationList({ popupId });
       return response.data;

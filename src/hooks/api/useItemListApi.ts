@@ -6,7 +6,7 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 
 export const useItemListApi = ({ popupId }: PopUpIdRequest) => {
   const { data, isLoading, isError, error, refetch } = useQuery({
-    queryKey: QUERY_KEYS.ITEM.INDEX,
+    queryKey: QUERY_KEYS.ITEM.LIST(String(popupId)),
     queryFn: async () => {
       const response = await getItemList({ popupId });
       return response.data;
@@ -23,7 +23,9 @@ export const useItemDeleteApi = ({ popupId }: PopUpIdRequest) => {
       await deleteItem({ itemId, popupId });
     },
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: QUERY_KEYS.ITEM.INDEX });
+      queryClient.invalidateQueries({
+        queryKey: QUERY_KEYS.ITEM.LIST(String(popupId)),
+      });
     },
     throwOnError: true,
     onError: error => {
