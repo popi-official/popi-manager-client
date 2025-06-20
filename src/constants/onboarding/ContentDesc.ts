@@ -1,6 +1,7 @@
-import TestImage from "@/assets/webps/onBoarding/test.png";
+import OnBoarding1 from "@/assets/webps/onBoarding/onBoarding1.webp";
 import OnBoarding2 from "@/assets/webps/onBoarding/onBoarding2.webp";
 import OnBoarding3 from "@/assets/webps/onBoarding/onBoarding3.webp";
+import OnBoarding4 from "@/assets/webps/onBoarding/onBoarding4.webp";
 
 export type OnBoardingContentType = {
   id: number;
@@ -13,7 +14,7 @@ export const ContentDesc: OnBoardingContentType[] = [
   {
     id: 1,
     title: "팝업 스토어 관리 서비스",
-    imagePath: TestImage,
+    imagePath: OnBoarding1,
     desc: [
       "K-pop 팝업 스토어, 이젠 직원 없이도 완벽하게!",
       "PoPI",
@@ -22,7 +23,7 @@ export const ContentDesc: OnBoardingContentType[] = [
   },
   {
     id: 2,
-    title: "대쉬보드 서비스",
+    title: "대시보드 서비스",
     imagePath: OnBoarding2,
     desc: [
       "스토어의 데이터를 시각적으로 접근해보세요",
@@ -42,7 +43,7 @@ export const ContentDesc: OnBoardingContentType[] = [
   {
     id: 4,
     title: "발주 제안 서비스",
-    imagePath: OnBoarding3,
+    imagePath: OnBoarding4,
     desc: [
       "지정된 발주 수량보다 재고 수량이 적다면",
       "알림으로 빠르게 발주 제안을 받아보세요!",

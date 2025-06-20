@@ -13,7 +13,7 @@ export default function OnBoardingContents({ info }: Props) {
         <img
           src={info.imagePath}
           loading={info.id === 1 ? "eager" : "lazy"}
-          className="rounded-[30px] max-w-[460px] h-auto"
+          className="rounded-[30px] max-w-[526px] h-auto"
         />
       </div>
       <div>
