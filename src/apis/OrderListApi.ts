@@ -11,7 +11,6 @@ import {
 
 export const getOrderList = async ({
   lastOrderItemId,
-  popupId,
   size,
   popupId,
 }: GetOrderListRequest): ApiResponse<GetOrderListResponse> => {
