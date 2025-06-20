@@ -15,7 +15,7 @@ export default function NoticeModal({ onClose }: Props) {
   const { realtimeNotis, historicalNotis, setHistoricalNotis } =
     useNotificationStore();
 
-  const { notifications: initialNotis } = useStockNotificationListApi({
+  const { data: initialNotis } = useStockNotificationListApi({
     popupId,
   });
 

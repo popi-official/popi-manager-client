@@ -1,5 +1,6 @@
 import { getOrderList, patchChangeOrderItemStatus } from "@/apis/OrderListApi";
 import { PatchChangeOrderItemRequest } from "@/types/api/ApiRequestType";
+import { QUERY_KEYS } from "@/hooks/api/queryKey";
 import {
   useInfiniteQuery,
   useMutation,
@@ -14,7 +15,7 @@ export const useGetOrderListApi = ({
   popupId: number;
 }) => {
   return useInfiniteQuery({
-    queryKey: ["orderItem"],
+    queryKey: QUERY_KEYS.ORDER_ITEM.LIST(String(popupId), { size }),
     queryFn: ({ pageParam }) =>
       getOrderList({ lastOrderItemId: pageParam, size, popupId }),
     getNextPageParam: response => {
@@ -28,6 +29,8 @@ export const useGetOrderListApi = ({
       return lastItem.orderItemId;
     },
     initialPageParam: undefined as number | undefined,
+    enabled: !!popupId,
+    staleTime: 0, // 항상 캐시 무효화 (websocket과 동기화)
   });
 };
 
@@ -36,6 +39,9 @@ export const usePatchChangeOrderItemStatus = () => {
   return useMutation({
     mutationFn: ({ orderItemId, qty, status }: PatchChangeOrderItemRequest) =>
       patchChangeOrderItemStatus({ orderItemId, qty, status }),
-    onSuccess: () => queryClient.invalidateQueries({ queryKey: ["orderItem"] }),
+    onSuccess: () =>
+      queryClient.invalidateQueries({
+        queryKey: QUERY_KEYS.ORDER_ITEM.INDEX(),
+      }),
   });
 };

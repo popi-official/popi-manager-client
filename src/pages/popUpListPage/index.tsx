@@ -17,7 +17,7 @@ import { usePopUpDeleteApi } from "@/hooks/api/usePopUpDeleteApi";
 import Loading from "@/components/ui/Loading";
 
 const PopUpListPage = () => {
-  const { cards, isLoading } = usePopUpListReadApi();
+  const { data, isLoading } = usePopUpListReadApi();
   const { deletePopUpMutation } = usePopUpDeleteApi();
   const navigate = useNavigate();
   const [isConfirmModalOpen, setIsConfirmModalOpen] = useState(false);
@@ -26,6 +26,7 @@ const PopUpListPage = () => {
   const [isBeginning, setIsBeginning] = useState(true);
   const [isEnd, setIsEnd] = useState(false);
   const swiperRef = useRef<SwiperType | null>(null);
+  const cards = data;
 
   const handleDelete = (id: number) => {
     setIsConfirmModalOpen(true);
