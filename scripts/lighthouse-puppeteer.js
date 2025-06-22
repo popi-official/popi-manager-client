@@ -47,12 +47,12 @@ module.exports = async (browser, context) => {
     console.log("인증 상태 안정화를 위해 2초 대기 중...");
     await new Promise(resolve => setTimeout(resolve, 2000));
 
-    // popup-list로 이동 (인증된 상태)
-    console.log("popup-list 페이지로 이동 중...");
-    await page.goto("http://localhost:4173/popup-list", {
-      waitUntil: "networkidle0",
-      timeout: 30000,
-    });
+    // // popup-list로 이동 (인증된 상태)
+    // console.log("popup-list 페이지로 이동 중...");
+    // await page.goto("http://localhost:4173/dashboard", {
+    //   waitUntil: "networkidle0",
+    //   timeout: 30000,
+    // });
 
     // 페이지가 완전히 로드될 때까지 추가 대기
     console.log("페이지 로딩 완료 확인 중...");
