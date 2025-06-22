@@ -5,19 +5,46 @@ function generateLighthouseConfig() {
   try {
     console.log("=========== Lighthouse 설정 생성 중 ===========");
 
+    // Chrome 경로 설정 (GitHub Actions vs 로컬)
+    let chromePath;
+    let chromeFlags = [
+      "--no-sandbox",
+      "--disable-setuid-sandbox",
+      "--disable-dev-shm-usage",
+      "--disable-web-security",
+      "--disable-features=VizDisplayCompositor",
+    ];
+
+    if (process.env.CHROME_PATH) {
+      // GitHub Actions 환경
+      chromePath = process.env.CHROME_PATH;
+      chromeFlags.push("--headless", "--disable-gpu");
+      console.log(`GitHub Actions Chrome 경로: ${chromePath}`);
+    } else {
+      // 로컬 환경 - Puppeteer Chrome 사용
+      try {
+        const puppeteer = require("puppeteer");
+        chromePath = puppeteer.executablePath();
+        console.log(`로컬 Puppeteer Chrome 경로: ${chromePath}`);
+      } catch (error) {
+        console.warn(
+          "Puppeteer를 찾을 수 없습니다. 시스템 Chrome을 사용합니다.",
+        );
+        chromePath = undefined;
+      }
+    }
+
     const lighthouseConfig = {
       ci: {
         collect: {
           url: ["http://localhost:4173/popup-list"],
-          puppeteerScript: path.join(__dirname, "lighthouse-puppeteer.js"),
+          puppeteerScript: "./scripts/lighthouse-puppeteer.js",
+          puppeteerLaunchOptions: {
+            executablePath: chromePath,
+            args: chromeFlags,
+            headless: true,
+          },
           settings: {
-            chromeFlags: [
-              "--no-sandbox",
-              "--disable-setuid-sandbox",
-              "--disable-dev-shm-usage",
-              "--disable-web-security",
-              "--disable-features=VizDisplayCompositor",
-            ],
             preset: "desktop",
             throttlingMethod: "provided",
             throttling: {

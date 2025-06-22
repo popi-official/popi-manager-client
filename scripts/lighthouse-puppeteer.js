@@ -1,7 +1,7 @@
-module.exports = async (browser, context) => {
-  const fs = require("fs");
-  const path = require("path");
+const fs = require("fs");
+const path = require("path");
 
+module.exports = async (browser, context) => {
   console.log("=========== Puppeteer 스크립트 시작 ===========");
 
   // 토큰 파일에서 accessToken 로드
@@ -18,37 +18,46 @@ module.exports = async (browser, context) => {
 
   const page = await browser.newPage();
 
-  // 먼저 onboarding에 가서 인증 상태 설정
-  console.log("onboarding 페이지로 이동 중...");
-  await page.goto("http://localhost:4173/onboarding", {
-    waitUntil: "domcontentloaded",
-    timeout: 30000,
-  });
+  try {
+    // 먼저 onboarding에 가서 인증 상태 설정
+    console.log("onboarding 페이지로 이동 중...");
+    await page.goto("http://localhost:4173/onboarding", {
+      waitUntil: "domcontentloaded",
+      timeout: 30000,
+    });
 
-  // localStorage에 인증 정보 설정
-  console.log("localStorage에 인증 정보 설정 중...");
-  await page.evaluate(token => {
-    const authStore = {
-      state: {
-        accessToken: token,
-        isLogin: true,
-      },
-      version: 0,
-    };
-    localStorage.setItem("auth-store", JSON.stringify(authStore));
-    console.log("localStorage 설정 완료:", localStorage.getItem("auth-store"));
-  }, accessToken);
+    // localStorage에 인증 정보 설정
+    console.log("localStorage에 인증 정보 설정 중...");
+    await page.evaluate(token => {
+      const authStore = {
+        state: {
+          accessToken: token,
+          isLogin: true,
+        },
+        version: 0,
+      };
+      localStorage.setItem("auth-store", JSON.stringify(authStore));
+      console.log(
+        "localStorage 설정 완료:",
+        localStorage.getItem("auth-store"),
+      );
+    }, accessToken);
 
-  // 잠시 대기 (인증 상태 안정화)
-  await page.waitForTimeout(1000);
+    // 잠시 대기 (인증 상태 안정화)
+    await page.waitForTimeout(2000);
 
-  // popup-list로 이동 (인증된 상태)
-  console.log("popup-list 페이지로 이동 중...");
-  await page.goto("http://localhost:4173/popup-list", {
-    waitUntil: "networkidle0",
-    timeout: 30000,
-  });
+    // popup-list로 이동 (인증된 상태)
+    console.log("popup-list 페이지로 이동 중...");
+    await page.goto("http://localhost:4173/popup-list", {
+      waitUntil: "networkidle0",
+      timeout: 30000,
+    });
 
-  console.log("=========== Puppeteer 스크립트 완료 ===========");
-  return page;
+    console.log("=========== Puppeteer 스크립트 완료 ===========");
+    return page;
+  } catch (error) {
+    console.error("Puppeteer 스크립트 실행 중 오류:", error);
+    await page.close();
+    throw error;
+  }
 };
