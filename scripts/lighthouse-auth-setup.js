@@ -10,16 +10,14 @@ function createLighthouseAuthConfig() {
       const authData = JSON.parse(fs.readFileSync(authFilePath, "utf8"));
       accessToken = authData.accessToken;
     } else {
-      throw new Error("토큰 파일이 없습니다. auth-setup.js를 먼저 실행하세요!");
+      throw new Error("토큰 파일이 없습니다.");
     }
 
     // popup-list용 별도 설정 생성
     const authConfig = {
       ci: {
         collect: {
-          url: [
-            "http://localhost:4173/popup-list",
-          ],
+          url: ["http://localhost:4173/popup-list"],
           puppeteerScript: path.join(__dirname, "lighthouse-puppeteer.js"),
           settings: {
             chromeFlags: [
@@ -75,14 +73,14 @@ module.exports = async (browser, context) => {
 
     const configPath = path.join(process.cwd(), "lighthouserc.auth.json");
     const scriptPath = path.join(__dirname, "lighthouse-puppeteer.js");
-    
+
     fs.writeFileSync(configPath, JSON.stringify(authConfig, null, 2));
     fs.writeFileSync(scriptPath, puppeteerScript);
-    
+
     console.log("인증용 Lighthouse 설정 생성 완료:");
     console.log(`- Config: ${configPath}`);
     console.log(`- Script: ${scriptPath}`);
-    
+
     return { configPath, scriptPath };
   } catch (error) {
     console.error("인증용 Lighthouse 설정 생성 실패:", error.message);
