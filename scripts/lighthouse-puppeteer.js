@@ -43,8 +43,9 @@ module.exports = async (browser, context) => {
       );
     }, accessToken);
 
-    // 잠시 대기 (인증 상태 안정화)
-    await page.waitForTimeout(2000);
+    // 잠시 대기 (인증 상태 안정화) - waitForTimeout 대신 setTimeout 사용
+    console.log("인증 상태 안정화를 위해 2초 대기 중...");
+    await new Promise(resolve => setTimeout(resolve, 2000));
 
     // popup-list로 이동 (인증된 상태)
     console.log("popup-list 페이지로 이동 중...");
@@ -52,6 +53,10 @@ module.exports = async (browser, context) => {
       waitUntil: "networkidle0",
       timeout: 30000,
     });
+
+    // 페이지가 완전히 로드될 때까지 추가 대기
+    console.log("페이지 로딩 완료 확인 중...");
+    await page.waitForSelector("body", { timeout: 10000 });
 
     console.log("=========== Puppeteer 스크립트 완료 ===========");
     return page;
