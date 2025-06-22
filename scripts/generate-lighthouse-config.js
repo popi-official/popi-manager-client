@@ -37,7 +37,7 @@ function generateLighthouseConfig() {
     const lighthouseConfig = {
       ci: {
         collect: {
-          url: ["http://localhost:4173/popup-list"],
+          url: ["http://localhost:4173/dashboard"],
           puppeteerScript: "./scripts/lighthouse-puppeteer.js",
           puppeteerLaunchOptions: {
             executablePath: chromePath,
