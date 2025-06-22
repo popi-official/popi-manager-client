@@ -36,6 +36,17 @@ function generateLighthouseConfig() {
                   Authorization: `Bearer ${accessToken}`,
                 })
               : undefined,
+            beforeTimespan: accessToken ? `
+              const authStore = {
+                state: {
+                  accessToken: "${accessToken}",
+                  isLogin: true,
+                },
+                version: 0,
+              };
+              localStorage.setItem("auth-store", JSON.stringify(authStore));
+              console.log("Lighthouse: localStorage 인증 정보 설정 완료");
+            ` : undefined,
             preset: "desktop",
             throttlingMethod: "provided",
             throttling: {
