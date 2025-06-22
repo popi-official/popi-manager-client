@@ -42,65 +42,10 @@ async function setupAuth() {
     fs.writeFileSync(authFilePath, JSON.stringify(authData, null, 2));
     console.log(`토큰 저장 완료: ${authFilePath}`);
 
-    process.env.ACCESS_TOKEN = accessToken;
-
-    // Puppeteer로 브라우저에서 로그인 상태 설정
-    await setupBrowserAuth(accessToken);
-
     return accessToken;
   } catch (error) {
     console.error("인증 설정 실패:", error.message);
     throw error;
-  }
-}
-
-async function setupBrowserAuth(accessToken) {
-  console.log("=========== 브라우저 인증 상태 설정 중 ===========");
-  
-  const browser = await puppeteer.launch({
-    headless: true,
-    args: [
-      "--no-sandbox",
-      "--disable-setuid-sandbox",
-      "--disable-dev-shm-usage",
-      "--disable-web-security",
-    ],
-  });
-
-  try {
-    const page = await browser.newPage();
-    
-    // 애플리케이션 페이지로 이동
-    await page.goto("http://localhost:4173/onboarding", {
-      waitUntil: "domcontentloaded",
-      timeout: 30000,
-    });
-
-    // localStorage에 인증 정보 설정 (Zustand persist 형식에 맞춤)
-    await page.evaluate((token) => {
-      const authStore = {
-        state: {
-          accessToken: token,
-          isLogin: true,
-        },
-        version: 0,
-      };
-      localStorage.setItem("auth-store", JSON.stringify(authStore));
-    }, accessToken);
-
-    // 쿠키 설정 (리프레시 토큰용 - 실제 쿠키명은 백엔드 설정에 따라 조정 필요)
-    await page.setCookie({
-      name: "refreshToken",
-      value: "dummy-refresh-token", // 실제 환경에서는 로그인 응답에서 가져와야 함
-      domain: "localhost",
-      path: "/",
-      httpOnly: false,
-      secure: false,
-    });
-
-    console.log("브라우저 인증 상태 설정 완료");
-  } finally {
-    await browser.close();
   }
 }
 
@@ -116,4 +61,4 @@ if (require.main === module) {
     });
 }
 
-module.exports = { setupAuth, setupBrowserAuth };
+module.exports = { setupAuth };

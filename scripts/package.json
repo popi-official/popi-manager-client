@@ -2,5 +2,11 @@
   "type": "commonjs",
   "dependencies": {
     "puppeteer": "^22.0.0"
+  },
+  "scripts": {
+    "auth:setup": "node auth-setup.js",
+    "lighthouse:config": "node generate-lighthouse-config.js",
+    "lighthouse:run": "lhci autorun",
+    "performance:test": "npm run auth:setup && npm run lighthouse:config && npm run lighthouse:run"
   }
 }

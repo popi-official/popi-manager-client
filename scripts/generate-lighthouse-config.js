@@ -4,25 +4,12 @@ const path = require("path");
 function generateLighthouseConfig() {
   try {
     console.log("=========== Lighthouse 설정 생성 중 ===========");
-    const authFilePath = path.join(__dirname, "auth-token.json");
-    let accessToken = "";
-
-    if (fs.existsSync(authFilePath)) {
-      const authData = JSON.parse(fs.readFileSync(authFilePath, "utf8"));
-      accessToken = authData.accessToken;
-      console.log("저장된 토큰 로드 완료");
-    } else {
-      console.warn("토큰 파일이 없습니다. auth-setup.js를 먼저 실행하세요!");
-    }
 
     const lighthouseConfig = {
       ci: {
         collect: {
-          url: [
-            "http://localhost:4173/onboarding",
-            "http://localhost:4173/popup-list",
-            "http://localhost:4173/dashboard",
-          ],
+          url: ["http://localhost:4173/popup-list"],
+          puppeteerScript: path.join(__dirname, "lighthouse-puppeteer.js"),
           settings: {
             chromeFlags: [
               "--no-sandbox",
@@ -31,22 +18,6 @@ function generateLighthouseConfig() {
               "--disable-web-security",
               "--disable-features=VizDisplayCompositor",
             ],
-            extraHeaders: accessToken
-              ? JSON.stringify({
-                  Authorization: `Bearer ${accessToken}`,
-                })
-              : undefined,
-            beforeTimespan: accessToken ? `
-              const authStore = {
-                state: {
-                  accessToken: "${accessToken}",
-                  isLogin: true,
-                },
-                version: 0,
-              };
-              localStorage.setItem("auth-store", JSON.stringify(authStore));
-              console.log("Lighthouse: localStorage 인증 정보 설정 완료");
-            ` : undefined,
             preset: "desktop",
             throttlingMethod: "provided",
             throttling: {
