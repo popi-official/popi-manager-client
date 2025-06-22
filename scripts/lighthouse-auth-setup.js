@@ -17,7 +17,7 @@ function createLighthouseAuthConfig() {
     const authConfig = {
       ci: {
         collect: {
-          url: ["http://localhost:4173/popup-list"],
+          url: ["http://localhost:4173/dashboard"],
           puppeteerScript: path.join(__dirname, "lighthouse-puppeteer.js"),
           settings: {
             chromeFlags: [
