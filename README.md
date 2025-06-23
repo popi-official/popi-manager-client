@@ -10,25 +10,21 @@
 
 ### 🖥️ Tech Stack
 
-#### Framework - <img src="https://img.shields.io/badge/Spring Boot-6DB33F?style=for-the-social&logo=spring-boot&logoColor=white"> <img src="https://img.shields.io/badge/Gradle-02303A?style=for-the-social&logo=Gradle&logoColor=white">
+#### 핵심 기술 - <img src="https://img.shields.io/badge/React 18-61DAFB?style=for-the-social&logo=react&logoColor=black"> <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-social&logo=typescript&logoColor=white">
 
-#### ORM - <img src="https://img.shields.io/badge/Spring Data JPA-6DB33F?style=for-the-social&logo=databricks&logoColor=white"> <img src="https://img.shields.io/badge/QueryDSL-0189C6?style=for-the-social&logo=apachemaven&logoColor=white">
+#### 개발 환경 - <img src="https://img.shields.io/badge/Vite-646CFF?style=for-the-social&logo=vite&logoColor=white">
 
-#### Batch - <img src="https://img.shields.io/badge/Spring Batch-6DB33F?style=for-the-social&logo=spring&logoColor=white">
+#### UI 컴포넌트 및 디자인 - <img src="https://img.shields.io/badge/Tailwind CSS-06B6D4?style=for-the-social&logo=tailwindcss&logoColor=white"> <img src="https://img.shields.io/badge/Framer Motion-0055FF?style=for-the-social&logo=framer&logoColor=white">
 
-#### Authentication - <img src="https://img.shields.io/badge/Spring Security-6DB33F?style=for-the-social&logo=springsecurity&logoColor=white"> <img src="https://img.shields.io/badge/JWT-000000?style=for-the-social&logo=JSON Web Tokens&logoColor=white"> <img src="https://img.shields.io/badge/OIDC-2684FF?style=for-the-social&logo=openid&logoColor=white">
+#### 상태 관리 및 API 통신 - <img src="https://img.shields.io/badge/Zustand-2D3748?style=for-the-social&logo=react&logoColor=white"> <img src="https://img.shields.io/badge/React Query-FF4154?style=for-the-social&logo=reactquery&logoColor=white"> <img src="https://img.shields.io/badge/Axios-5A29E4?style=for-the-social&logo=axios&logoColor=white">
 
-#### Test - <img src="https://img.shields.io/badge/JUnit5-25A162?style=for-the-sociak&logo=junit5&logoColor=white"> <img src="https://img.shields.io/badge/SonarQube-4E9BCD?style=for-the-social&logo=sonarqube&logoColor=white">
+#### 페이지 라우팅 - <img src="https://img.shields.io/badge/React Router-CA4245?style=for-the-social&logo=reactrouter&logoColor=white">
 
-#### Database - <img src="https://img.shields.io/badge/MySQL-4479A1.svg?style=for-the-social&logo=MySQL&logoColor=white"> <img src="https://img.shields.io/badge/Redis-DC382D.svg?style=for-the-social&logo=redis&logoColor=white">
+#### 테스트 도구 - <img src="https://img.shields.io/badge/Vitest-6E9F18?style=for-the-social&logo=vitest&logoColor=white"> <img src="https://img.shields.io/badge/Testing Library-E33332?style=for-the-social&logo=testinglibrary&logoColor=white">
 
-#### Messaging - <img src="https://img.shields.io/badge/Kafka-231F20?style=for-the-social&logo=apachekafka&logoColor=white">
+#### 개발 생산성 및 품질 관리 - <img src="https://img.shields.io/badge/ESLint-4B32C3?style=for-the-social&logo=eslint&logoColor=white"> <img src="https://img.shields.io/badge/Prettier-F7B93E?style=for-the-social&logo=prettier&logoColor=black"> <img src="https://img.shields.io/badge/Storybook-FF4785?style=for-the-social&logo=storybook&logoColor=white"> <img src="https://img.shields.io/badge/MSW-FF6A33?style=for-the-social&logo=mockserviceworker&logoColor=white">
 
-#### AWS - <img src="https://img.shields.io/badge/EKS-FF9900?style=for-the-social&logo=amazoneks&logoColor=white"> <img src="https://img.shields.io/badge/EC2-FF9900?style=for-the-social&logo=amazon-ec2&logoColor=white"> <img src="https://img.shields.io/badge/ELB-FF9900?style=for-the-social&logo=aws-elastic-load-balancing&logoColor=white"> <img src="https://img.shields.io/badge/RDS-527FFF?style=for-the-social&logo=amazonrds&logoColor=white"> <img src="https://img.shields.io/badge/S3-569A31?style=for-the-social&logo=amazon-s3&logoColor=white"> <img src="https://img.shields.io/badge/ElastiCache-DC382D?style=for-the-social&logo=redis&logoColor=white">
-
-#### Monitoring - <img src="https://img.shields.io/badge/Prometheus-E6522C?style=for-the-social&logo=prometheus&logoColor=white"> <img src="https://img.shields.io/badge/Grafana-F46800?style=for-the-social&logo=grafana&logoColor=white"> <img src="https://img.shields.io/badge/Loki-3E4C59?style=for-the-social&logo=grafana&logoColor=white"> <img src="https://img.shields.io/badge/Slack-4A154B?style=for-the-social&logo=slack&logoColor=white">
-
-#### Other - <img src="https://img.shields.io/badge/ Swagger-6DB33F?style=for-the-social&logo=swagger&logoColor=white"> <img src="https://img.shields.io/badge/Firebase Cloud Messaging-FFCA28?style=for-the-social&logo=firebase&logoColor=white">
+#### 프로젝트 관리 도구 - <img src="https://img.shields.io/badge/Slack-4A154B?style=for-the-social&logo=slack&logoColor=white"> <img src="https://img.shields.io/badge/Jira-0052CC?style=for-the-social&logo=jira&logoColor=white">
 
 ## 👥 Contributors
 
