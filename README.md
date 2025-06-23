@@ -20,7 +20,7 @@
 
 #### 페이지 라우팅 - <img src="https://img.shields.io/badge/React Router-CA4245?style=for-the-social&logo=reactrouter&logoColor=white">
 
-#### 테스트 도구 - <img src="https://img.shields.io/badge/Vitest-6E9F18?style=for-the-social&logo=vitest&logoColor=white"> <img src="https://img.shields.io/badge/Testing Library-E33332?style=for-the-social&logo=testinglibrary&logoColor=white"> <img src="https://img.shields.io/badge/PlayWright-E33332?style=for-the-social&logo=playwright&logoColor=white">
+#### 테스트 도구 - <img src="https://img.shields.io/badge/Vitest-6E9F18?style=for-the-social&logo=vitest&logoColor=white"> <img src="https://img.shields.io/badge/Testing Library-E33332?style=for-the-social&logo=testinglibrary&logoColor=white"> <img src="https://img.shields.io/badge/Playwright-2EAD33?style=for-the-social&logo=playwright&logoColor=white">
 
 #### 개발 생산성 및 품질 관리 - <img src="https://img.shields.io/badge/ESLint-4B32C3?style=for-the-social&logo=eslint&logoColor=white"> <img src="https://img.shields.io/badge/Prettier-F7B93E?style=for-the-social&logo=prettier&logoColor=black"> <img src="https://img.shields.io/badge/Storybook-FF4785?style=for-the-social&logo=storybook&logoColor=white"> <img src="https://img.shields.io/badge/MSW-FF6A33?style=for-the-social&logo=mockserviceworker&logoColor=white">
 
