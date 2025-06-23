@@ -1,9 +1,9 @@
-import DashBoardQuestionnaire from "@/pages/dashboardPage/questionnaire";
 import { Meta, StoryObj } from "@storybook/react";
+import Questionnaire from ".";
 
-const meta: Meta<typeof DashBoardQuestionnaire> = {
+const meta: Meta<typeof Questionnaire> = {
   title: "pages/dashboard/views/DashBoardQuestionnaire",
-  component: DashBoardQuestionnaire,
+  component: Questionnaire,
   tags: ["autodocs"],
   //   argTypes: {
   //     onClick: { action: "clicked" },
@@ -12,7 +12,7 @@ const meta: Meta<typeof DashBoardQuestionnaire> = {
 
 export default meta;
 
-type Story = StoryObj<typeof DashBoardQuestionnaire>;
+type Story = StoryObj<typeof Questionnaire>;
 
 export const DashBoardQuestionnaireTest: Story = {
   parameters: {
