@@ -86,7 +86,7 @@ export const useQuestionnaireApi = ({ popupId }: PopUpIdRequest) => {
 };
 
 export const useConversionApi = ({ popupId }: PopUpIdRequest) => {
-  const { data, isError, isLoading } = useQuery({
+  const { data, isLoading, isError } = useQuery({
     queryKey: QUERY_KEYS.DASHBOARD.CONVERSION(String(popupId)),
     queryFn: async () => {
       const response = await getConversion({ popupId });
@@ -94,7 +94,7 @@ export const useConversionApi = ({ popupId }: PopUpIdRequest) => {
     },
   });
 
-  return { data, isError, isLoading };
+  return { data, isLoading, isError };
 };
 
 export const useVisitorApi = ({ popupId }: PopUpIdRequest) => {

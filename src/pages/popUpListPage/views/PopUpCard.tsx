@@ -1,7 +1,6 @@
 import xWhite from "@/assets/webps/popUpList/x-white.webp";
 import { usePopUpReadStore } from "@/stores/usePopUpReadStore";
 import { GetPopUpReadResponse } from "@/types/api/ApiResponseType";
-import { useQueryClient } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
 
 type Props = GetPopUpReadResponse & {
@@ -17,7 +16,6 @@ export default function PopUpCard({
   const setPopUp = usePopUpReadStore(state => state.setPopUp);
   const navigate = useNavigate();
   const isNameContainPopUp = name.includes("팝업스토어");
-  const queryClient = useQueryClient();
 
   let firstLine = "";
   let secondLine = "";
@@ -30,7 +28,6 @@ export default function PopUpCard({
 
   const handleSelect = () => {
     setPopUp({ popupId, name, imageUrl });
-    queryClient.clear();
     navigate("/dashboard");
   };
 

@@ -3,8 +3,8 @@ import Congestion from "@/pages/dashboardPage/views/congestion";
 import Visitor from "@/pages/dashboardPage/views/visitor";
 import CustomerTransaction from "@/pages/dashboardPage/views/customerTransaction";
 import Reservation from "@/pages/dashboardPage/views/reservation";
-import Questionnaire from "@/pages/dashboardPage/views/DashBoardQuestionnaire";
-import ConversionRate from "@/pages/dashboardPage/views/DashBoardConversionRate";
+import Conversion from "@/pages/dashboardPage/views/conversion";
+import Questionnaire from "@/pages/dashboardPage/views/questionnaire";
 
 const DashBoardPage = () => {
   return (
@@ -19,7 +19,7 @@ const DashBoardPage = () => {
         <CustomerTransaction />
       </div>
       <Questionnaire />
-      <ConversionRate />
+      <Conversion />
     </div>
   );
 };
