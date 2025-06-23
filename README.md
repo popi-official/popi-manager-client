@@ -1,6 +1,6 @@
 # PoP! <img src="https://github.com/ht3064/readme-image/blob/main/popi-server/app-logo.png" align="left" width="100"></a>
 
-[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fdepromeet%2Fpopi-manager-server&count_bg=%2328DBE6&title_bg=%232D3540&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com) [![codecov](https://codecov.io/gh/popi-official/popi-manager-server/branch/dev/graph/badge.svg?token=7EHWI73ZQU)](https://codecov.io/gh/popi-official/popi-manager-server) [![Github Action](https://github.com/popi-official/popi-manager-server/actions/workflows/coverage.yml/badge.svg)](https://github.com/popi-official/popi-manager-server/actions)
+[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fdepromeet%2Fpopi-manager-server&count_bg=%2328DBE6&title_bg=%232D3540&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com) [![Github Action](https://github.com/popi-official/popi-manager-server/actions/workflows/coverage.yml/badge.svg)](https://github.com/popi-official/popi-manager-server/actions)
 
 ## 💁‍♂️ Introduction
 
@@ -20,7 +20,7 @@
 
 #### 페이지 라우팅 - <img src="https://img.shields.io/badge/React Router-CA4245?style=for-the-social&logo=reactrouter&logoColor=white">
 
-#### 테스트 도구 - <img src="https://img.shields.io/badge/Vitest-6E9F18?style=for-the-social&logo=vitest&logoColor=white"> <img src="https://img.shields.io/badge/Testing Library-E33332?style=for-the-social&logo=testinglibrary&logoColor=white">
+#### 테스트 도구 - <img src="https://img.shields.io/badge/Vitest-6E9F18?style=for-the-social&logo=vitest&logoColor=white"> <img src="https://img.shields.io/badge/Testing Library-E33332?style=for-the-social&logo=testinglibrary&logoColor=white"> <img src="https://img.shields.io/badge/PlayWright-E33332?style=for-the-social&logo=playwright&logoColor=white">
 
 #### 개발 생산성 및 품질 관리 - <img src="https://img.shields.io/badge/ESLint-4B32C3?style=for-the-social&logo=eslint&logoColor=white"> <img src="https://img.shields.io/badge/Prettier-F7B93E?style=for-the-social&logo=prettier&logoColor=black"> <img src="https://img.shields.io/badge/Storybook-FF4785?style=for-the-social&logo=storybook&logoColor=white"> <img src="https://img.shields.io/badge/MSW-FF6A33?style=for-the-social&logo=mockserviceworker&logoColor=white">
 
@@ -35,6 +35,6 @@
 
 ### 🧑‍💻 Developers
 
-| Sungyeop | Suyeon | Yeongseo |
+| Suyeon | Yeoungseo | Sungyeop |
 | :-: | :-: | :-: |
-| <img src="https://avatars.githubusercontent.com/u/17813930?v=4" width="100" height="100" style="border-radius: 50%;"><br/><a href="https://github.com/sung-yeop" target="_blank"><img src="https://img.shields.io/badge/sung yeop-181717?style=for-the-social&logo=github&logoColor=white"/></a> | <img src="https://avatars.githubusercontent.com/u/80201773?v=4" width="100" height="100" style="border-radius: 50%;"><br/><a href="https://github.com/letthem" target="_blank"><img src="https://img.shields.io/badge/letthem-181717?style=for-the-social&logo=github&logoColor=white"/></a> | <img src="https://avatars.githubusercontent.com/u/87802191?s=400&u=a046b207b40b564a97db82bd2264b81727b50b77&v=4" width="100" height="100" style="border-radius: 50%;"><br/><a href="https://github.com/Y0ungse" target="_blank"><img src="https://img.shields.io/badge/Y0ungse-181717?style=for-the-social&logo=github&logoColor=white"/></a> |
+| <img src="https://avatars.githubusercontent.com/u/81095801?v=4" width="100" height="100" style="border-radius: 50%;"><br/><a href="https://github.com/letthem" target="_blank"><img src="https://img.shields.io/badge/letthem-181717?style=for-the-social&logo=github&logoColor=white"/></a> | <img src="https://avatars.githubusercontent.com/u/95837534?v=4" width="100" height="100" style="border-radius: 50%;"><br/><a href="https://github.com/Y0ungse" target="_blank"><img src="https://img.shields.io/badge/Y0ungse-181717?style=for-the-social&logo=github&logoColor=white"/></a> | <img src="https://avatars.githubusercontent.com/u/43811124?v=4" width="100" height="100" style="border-radius: 50%;"><br/><a href="https://github.com/sung-yeop" target="_blank"><img src="https://img.shields.io/badge/sung yeop-181717?style=for-the-social&logo=github&logoColor=white"/></a> |
