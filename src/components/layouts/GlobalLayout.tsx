@@ -2,6 +2,7 @@ import { Navigate, Outlet, useLocation } from "react-router-dom";
 import CustomErrorBoundary from "@/components/boundary/CustomErrorBoundary";
 import NavBar from "@/components/common/NavBar";
 import { useAuthStore } from "@/stores/useAuthStore";
+import CustomQueryProvider from "../boundary/CustomQueryProvider";
 
 export default function GlobalLayout() {
   const location = useLocation();
@@ -16,13 +17,15 @@ export default function GlobalLayout() {
   }
 
   return (
-    <div className="box-border min-h-screen flex flex-col">
-      {isContainNavBar && <NavBar />}
-      <div className={`flex-grow ${isContainNavBar ? "mt-[80px]" : ""}`}>
-        <CustomErrorBoundary>
-          <Outlet />
-        </CustomErrorBoundary>
-      </div>
-    </div>
+    <CustomQueryProvider>
+      <CustomErrorBoundary>
+        <div className="box-border min-h-screen flex flex-col">
+          {isContainNavBar && <NavBar />}
+          <div className={`flex-grow ${isContainNavBar ? "mt-[80px]" : ""}`}>
+            <Outlet />
+          </div>
+        </div>
+      </CustomErrorBoundary>
+    </CustomQueryProvider>
   );
 }
