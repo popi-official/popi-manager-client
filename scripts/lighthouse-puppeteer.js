@@ -44,7 +44,7 @@ module.exports = async (browser, context) => {
     }, accessToken);
 
     await new Promise(resolve => setTimeout(resolve, 2000));
-    await page.waitForSelector("body", { timeout: 10000 });
+    await page.waitForSelector("body", { timeout: 5000 });
 
     console.log("=========== Puppeteer 스크립트 완료 ===========");
     return page;
