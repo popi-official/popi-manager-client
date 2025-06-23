@@ -22,7 +22,11 @@ function ConditionalComponent<T>({
   fallback?: React.ReactNode;
   children: React.ReactNode | ((_data: T) => React.ReactNode);
 }) {
-  if (!when || (Array.isArray(when) && when.length === 0))
+  if (
+    !when ||
+    (Array.isArray(when) && when.length === 0) ||
+    Object.keys(when).length === 0
+  )
     return <>{fallback}</>;
 
   if (typeof children === "function" && typeof when !== "boolean") {
