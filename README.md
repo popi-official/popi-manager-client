@@ -24,7 +24,7 @@
 
 #### 개발 생산성 및 품질 관리 - <img src="https://img.shields.io/badge/ESLint-4B32C3?style=for-the-social&logo=eslint&logoColor=white"> <img src="https://img.shields.io/badge/Prettier-F7B93E?style=for-the-social&logo=prettier&logoColor=black"> <img src="https://img.shields.io/badge/Storybook-FF4785?style=for-the-social&logo=storybook&logoColor=white"> <img src="https://img.shields.io/badge/MSW-FF6A33?style=for-the-social&logo=mockserviceworker&logoColor=white">
 
-#### 프로젝트 관리 도구 - <img src="https://img.shields.io/badge/Slack-4A154B?style=for-the-social&logo=slack&logoColor=white"> <img src="https://img.shields.io/badge/Jira-0052CC?style=for-the-social&logo=jira&logoColor=white">
+#### 협업 도구 - <img src="https://img.shields.io/badge/Slack-4A154B?style=for-the-social&logo=slack&logoColor=white"> <img src="https://img.shields.io/badge/Jira-0052CC?style=for-the-social&logo=jira&logoColor=white">
 
 ## 👥 Contributors
 
@@ -37,4 +37,4 @@
 
 | Sungyeop | Suyeon | Yeongseo |
 | :-: | :-: | :-: |
-| <img src="https://avatars.githubusercontent.com/u/17813930?v=4" width="100" height="100" style="border-radius: 50%;"><br/><a href="https://github.com/ht3064" target="_blank"><img src="https://img.shields.io/badge/ht3064-181717?style=for-the-social&logo=github&logoColor=white"/></a> | <img src="https://avatars.githubusercontent.com/u/80201773?v=4" width="100" height="100" style="border-radius: 50%;"><br/><a href="https://github.com/woogieon8on" target="_blank"><img src="https://img.shields.io/badge/woogieon8on-181717?style=for-the-social&logo=github&logoColor=white"/></a> | <img src="https://avatars.githubusercontent.com/u/87802191?s=400&u=a046b207b40b564a97db82bd2264b81727b50b77&v=4" width="100" height="100" style="border-radius: 50%;"><br/><a href="https://github.com/jeongyeon0208" target="_blank"><img src="https://img.shields.io/badge/jeongyeon0208-181717?style=for-the-social&logo=github&logoColor=white"/></a> |
+| <img src="https://avatars.githubusercontent.com/u/17813930?v=4" width="100" height="100" style="border-radius: 50%;"><br/><a href="https://github.com/sung-yeop" target="_blank"><img src="https://img.shields.io/badge/sung yeop-181717?style=for-the-social&logo=github&logoColor=white"/></a> | <img src="https://avatars.githubusercontent.com/u/80201773?v=4" width="100" height="100" style="border-radius: 50%;"><br/><a href="https://github.com/letthem" target="_blank"><img src="https://img.shields.io/badge/letthem-181717?style=for-the-social&logo=github&logoColor=white"/></a> | <img src="https://avatars.githubusercontent.com/u/87802191?s=400&u=a046b207b40b564a97db82bd2264b81727b50b77&v=4" width="100" height="100" style="border-radius: 50%;"><br/><a href="https://github.com/Y0ungse" target="_blank"><img src="https://img.shields.io/badge/Y0ungse-181717?style=for-the-social&logo=github&logoColor=white"/></a> |
