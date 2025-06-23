@@ -28,7 +28,7 @@ const Skeleton = ({
 }: Props) => {
   return (
     <motion.div
-      className={`relative overflow-hidden bg-gray-200 ${width} ${height} ${rounded} ${className}`}
+      className={`overflow-hidden bg-gray-200 ${width} ${height} ${rounded} ${className}`}
       initial={{ opacity: 0.6 }}
     >
       <motion.div
