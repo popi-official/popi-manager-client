@@ -1,12 +1,30 @@
 # PoP! <img src="https://github.com/ht3064/readme-image/blob/main/popi-server/app-logo.png" align="left" width="100"></a>
 
-[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fdepromeet%2Fpopi-manager-server&count_bg=%2328DBE6&title_bg=%232D3540&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com) [![Github Action](https://github.com/popi-official/popi-manager-server/actions/workflows/coverage.yml/badge.svg)](https://github.com/popi-official/popi-manager-server/actions)
+![GitHub Repo stars](https://img.shields.io/github/stars/popi-official/popi-manager-server?style=social) </br></br>
 
-## 💁‍♂️ Introduction
+### 🛍️ 단기간에 임팩트를 남기는 무인 팝업 운영, 어렵지 않게!
 
-![intro-main]()
+“단기 팝업 운영, 어렵지 않을까요?”
 
-![intro-description]() ![home]() ![let's-go]()
+한정된 기간 동안 상품을 알리고 판매하는 무인 팝업스토어, 직접 운영해보면 방문자 수 파악부터 상품 판매, 재고 관리까지 신경 쓸 게 한두 가지가 아니죠 😥
+
+PoP!은 운영자들이 이런 복잡한 과정을 쉽고 스마트하게 관리할 수 있도록 도와주는 서비스입니다.
+
+실시간 인기 상품 분석, 예약 기반 방문자 수 예측, 재고 알림 및 발주 지원 등 운영에 꼭 필요한 기능을 한곳에 모아 간편한 운영 환경을 제공합니다. </br></br>
+
+## ✨ 주요 기능
+
+### 🧾 실시간 인기 상품, 혼잡도, 방문자·예약·구매 분석 등을 한눈에 보여주는 운영자 대시보드
+
+![](https://github.com/ht3064/readme-image/blob/main/popi-server/dashboard.png?raw=true) </br></br>
+
+### 🛍️ 상품 등록부터 리스트 관리까지 한눈에 가능한 팝업 상품 관리
+
+![](https://github.com/ht3064/readme-image/blob/main/popi-server/product-management.png?raw=true) </br></br>
+
+### 📦 재고 부족 시 알림부터 발주까지 한눈에 가능한 재고 관리
+
+![](https://github.com/ht3064/readme-image/blob/main/popi-server/inventory-alert.png?raw=true) </br></br>
 
 ### 🖥️ Tech Stack
 
