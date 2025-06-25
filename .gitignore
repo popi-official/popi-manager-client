@@ -42,3 +42,4 @@ localhost*
 test-results
 playwright-report
 tests/auth.json
+.lighthouseci

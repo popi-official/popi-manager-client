@@ -1,74 +1,58 @@
-# POPI 관리자 페이지
+# PoP! <img src="https://github.com/ht3064/readme-image/blob/main/popi-server/app-logo.png" align="left" width="100"></a>
 
-## 소개
+![GitHub Repo stars](https://img.shields.io/github/stars/popi-official/popi-manager-server?style=social) </br></br>
 
-- 해당 프로젝트는 팝업 스토어 관리자를 위한 웹 애플리케이션으로, 팝업 스토어 생성, 대쉬 보드, 상품 관리 등의 기능을 제공합니다.
-- 프로젝트는 React와 TypeScript를 기반으로 구축되었습니다.
+### 🛍️ 단기간에 임팩트를 남기는 무인 팝업 운영, 어렵지 않게!
 
----
+“단기 팝업 운영, 어렵지 않을까요?”
 
-## 기술 스택
+한정된 기간 동안 상품을 알리고 판매하는 무인 팝업스토어, 직접 운영해보면 방문자 수 파악부터 상품 판매, 재고 관리까지 신경 쓸 게 한두 가지가 아니죠 😥
 
-#### 핵심 기술
+PoP!은 운영자들이 이런 복잡한 과정을 쉽고 스마트하게 관리할 수 있도록 도와주는 서비스입니다.
 
-<img src="https://img.shields.io/badge/React 18-61DAFB?style=for-the-badge&logo=React&logoColor=black"> <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=TypeScript&logoColor=white">
+실시간 인기 상품 분석, 예약 기반 방문자 수 예측, 재고 알림 및 발주 지원 등 운영에 꼭 필요한 기능을 한곳에 모아 간편한 운영 환경을 제공합니다. </br></br>
 
-#### 개발 환경
+## ✨ 주요 기능
 
-<img src="https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=Vite&logoColor=white">
+### 🧾 실시간 인기 상품, 혼잡도, 방문자·예약·구매 분석 등을 한눈에 보여주는 운영자 대시보드
 
-#### UI 컴포넌트 및 디자인
+![](https://github.com/ht3064/readme-image/blob/main/popi-server/dashboard.png?raw=true) </br></br>
 
-<img src="https://img.shields.io/badge/TailwindCSS-06B6D4?style=for-the-badge&logo=TailwindCSS&logoColor=white"> <img src="https://img.shields.io/badge/Framer Motion-0055FF?style=for-the-badge&logo=Framer&logoColor=white">
+### 🛍️ 상품 등록부터 리스트 관리까지 한눈에 가능한 팝업 상품 관리
 
-#### 상태 관리 및 API 통신
+![](https://github.com/ht3064/readme-image/blob/main/popi-server/product-management.png?raw=true) </br></br>
 
-<img src="https://img.shields.io/badge/Zustand-000000?style=for-the-badge&logo=npm&logoColor=white"> <img src="https://img.shields.io/badge/React Query-FF4154?style=for-the-badge&logo=ReactQuery&logoColor=white"> <img src="https://img.shields.io/badge/Axios-5A29E4?style=for-the-badge&logo=Axios&logoColor=white">
+### 📦 재고 부족 시 알림부터 발주까지 한눈에 가능한 재고 관리
 
-#### 페이지 라우팅
+![](https://github.com/ht3064/readme-image/blob/main/popi-server/inventory-alert.png?raw=true) </br></br>
 
-<img src="https://img.shields.io/badge/React Router-CA4245?style=for-the-badge&logo=ReactRouter&logoColor=white">
+### 🖥️ Tech Stack
 
-#### 테스트 도구
+#### 핵심 기술 - <img src="https://img.shields.io/badge/React 18-61DAFB?style=for-the-social&logo=react&logoColor=black"> <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-social&logo=typescript&logoColor=white">
 
-<img src="https://img.shields.io/badge/Vitest-6E9F18?style=for-the-badge&logo=Vitest&logoColor=white"> <img src="https://img.shields.io/badge/Testing Library-E33332?style=for-the-badge&logo=TestingLibrary&logoColor=white">
+#### 개발 환경 - <img src="https://img.shields.io/badge/Vite-646CFF?style=for-the-social&logo=vite&logoColor=white">
 
-#### 개발 생산성 및 품질 관리
+#### UI 컴포넌트 및 디자인 - <img src="https://img.shields.io/badge/Tailwind CSS-06B6D4?style=for-the-social&logo=tailwindcss&logoColor=white"> <img src="https://img.shields.io/badge/Framer Motion-0055FF?style=for-the-social&logo=framer&logoColor=white">
 
-<img src="https://img.shields.io/badge/ESLint-4B32C3?style=for-the-badge&logo=ESLint&logoColor=white"> <img src="https://img.shields.io/badge/Prettier-F7B93E?style=for-the-badge&logo=Prettier&logoColor=black"> <img src="https://img.shields.io/badge/Storybook-FF4785?style=for-the-badge&logo=Storybook&logoColor=white"> <img src="https://img.shields.io/badge/Mock Service Worker-FF6A33?style=for-the-badge&logo=MockServiceWorker&logoColor=white">
+#### 상태 관리 및 API 통신 - <img src="https://img.shields.io/badge/Zustand-2D3748?style=for-the-social&logo=react&logoColor=white"> <img src="https://img.shields.io/badge/React Query-FF4154?style=for-the-social&logo=reactquery&logoColor=white"> <img src="https://img.shields.io/badge/Axios-5A29E4?style=for-the-social&logo=axios&logoColor=white">
 
-#### 프로젝트 관리 도구
+#### 페이지 라우팅 - <img src="https://img.shields.io/badge/React Router-CA4245?style=for-the-social&logo=reactrouter&logoColor=white">
 
-<img src="https://img.shields.io/badge/GitHub Actions-2088FF?style=for-the-badge&logo=GitHub Actions&logoColor=white"> <img src="https://img.shields.io/badge/Slack-4A154B?style=for-the-badge&logo=Slack&logoColor=white"> <img src="https://img.shields.io/badge/Jira-0052CC?style=for-the-badge&logo=Jira&logoColor=white">
+#### 테스트 도구 - <img src="https://img.shields.io/badge/Vitest-6E9F18?style=for-the-social&logo=vitest&logoColor=white"> <img src="https://img.shields.io/badge/Testing Library-E33332?style=for-the-social&logo=testinglibrary&logoColor=white"> <img src="https://img.shields.io/badge/Playwright-2EAD33?style=for-the-social&logo=playwright&logoColor=white">
 
----
+#### 개발 생산성 및 품질 관리 - <img src="https://img.shields.io/badge/ESLint-4B32C3?style=for-the-social&logo=eslint&logoColor=white"> <img src="https://img.shields.io/badge/Prettier-F7B93E?style=for-the-social&logo=prettier&logoColor=black"> <img src="https://img.shields.io/badge/Storybook-FF4785?style=for-the-social&logo=storybook&logoColor=white"> <img src="https://img.shields.io/badge/MSW-FF6A33?style=for-the-social&logo=mockserviceworker&logoColor=white">
 
-## 프로젝트 구조
+#### 협업 도구 - <img src="https://img.shields.io/badge/Slack-4A154B?style=for-the-social&logo=slack&logoColor=white"> <img src="https://img.shields.io/badge/Jira-0052CC?style=for-the-social&logo=jira&logoColor=white">
 
-```
-FE-Manager
- ┣ .storybook             # Storybook 설정
- ┣ public                 # 정적 파일
- ┣ src
- ┃ ┣ apis                 # HTTP API 정의
- ┃ ┣ assets               # 이미지, 폰트 등 자산
- ┃ ┣ components           # 재사용 가능한 컴포넌트
- ┃ ┣ constants            # 상수 데이터 정의
- ┃ ┣ hooks                # 커스텀 훅
- ┃ ┣ mocks                # MSW Handler 관리
- ┃ ┣ pages                # 페이지 컴포넌트
- ┃ ┣ router               # 라우팅 정보 관리
- ┃ ┣ stores               # Zustand 상태 저장소
- ┃ ┣ types                # TypeScript 타입 정의
- ┃ ┣ utils                # 유틸리티 함수
- ┃ ┣ App.tsx              # 루트 컴포넌트
- ┃ ┗ main.tsx             # 앱 엔트리 포인트
- ┣ vitest.config.ts       # Vitest 설정
- ┣ vitest.storybook.config.ts # Storybook 테스트 설정
- ┗ vite.config.ts         # Vite 설정
-```
+## 👥 Contributors
 
-## Ground Rule
+### 👜 Repository
 
-- 이미지, 커스텀 훅 (use...), 프로젝트 설정 파일, README를 제외한 모든 파일은 카멜 케이스를 사용하여 정의합니다.
-- 디렉토리는 파스칼 케이스를 사용해서 정의합니다.
+- [PoP! Client Repository](https://github.com/popi-official/popi-manager-client)
+- [PoP! Server Repository](https://github.com/popi-official/popi-manager-server)
+
+### 🧑‍💻 Developers
+
+| Suyeon | Yeoungseo | Sungyeop |
+| :-: | :-: | :-: |
+| <img src="https://avatars.githubusercontent.com/u/81095801?v=4" width="100" height="100" style="border-radius: 50%;"><br/><a href="https://github.com/letthem" target="_blank"><img src="https://img.shields.io/badge/letthem-181717?style=for-the-social&logo=github&logoColor=white"/></a> | <img src="https://avatars.githubusercontent.com/u/95837534?v=4" width="100" height="100" style="border-radius: 50%;"><br/><a href="https://github.com/Y0ungse" target="_blank"><img src="https://img.shields.io/badge/Y0ungse-181717?style=for-the-social&logo=github&logoColor=white"/></a> | <img src="https://avatars.githubusercontent.com/u/43811124?v=4" width="100" height="100" style="border-radius: 50%;"><br/><a href="https://github.com/sung-yeop" target="_blank"><img src="https://img.shields.io/badge/sung yeop-181717?style=for-the-social&logo=github&logoColor=white"/></a> |
