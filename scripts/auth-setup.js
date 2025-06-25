@@ -41,8 +41,6 @@ async function setupAuth() {
     fs.writeFileSync(authFilePath, JSON.stringify(authData, null, 2));
     console.log(`토큰 저장 완료: ${authFilePath}`);
 
-    process.env.ACCESS_TOKEN = accessToken;
-
     return accessToken;
   } catch (error) {
     console.error("인증 설정 실패:", error.message);

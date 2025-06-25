@@ -1,6 +1,6 @@
 import axios, { AxiosError, InternalAxiosRequestConfig } from "axios";
 import { useAuthStore } from "@/stores/useAuthStore";
-import { postRefreshAccessToken } from "../user/AuthApi";
+import { postRefreshAccessToken } from "@/apis/user/AuthApi";
 
 interface ExtendedAxiosRequestConfig extends InternalAxiosRequestConfig {
   _retry?: boolean;
@@ -81,10 +81,18 @@ api.interceptors.response.use(
         if (originalRequest.headers) {
           originalRequest.headers.Authorization = `Bearer ${newAccessToken}`;
         }
+
         return api(originalRequest);
       } catch (refreshError) {
+        console.error("Refresh token 실패:", refreshError);
+        console.error("403 에러 발생 - 토큰 재발급 실패로 인한 로그아웃 처리");
+
         processQueue(refreshError, null);
         useAuthStore.getState().setLogout();
+
+        // onBoarding 페이지로 리다이렉트
+        window.location.href = "/onBoarding";
+
         return Promise.reject(refreshError);
       } finally {
         isRefreshing = false;

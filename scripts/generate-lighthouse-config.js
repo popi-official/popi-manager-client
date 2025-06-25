@@ -4,38 +4,47 @@ const path = require("path");
 function generateLighthouseConfig() {
   try {
     console.log("=========== Lighthouse 설정 생성 중 ===========");
-    const authFilePath = path.join(__dirname, "auth-token.json");
-    let accessToken = "";
 
-    if (fs.existsSync(authFilePath)) {
-      const authData = JSON.parse(fs.readFileSync(authFilePath, "utf8"));
-      accessToken = authData.accessToken;
-      console.log("저장된 토큰 로드 완료");
+    // Chrome 경로 설정 (GitHub Actions vs 로컬)
+    let chromePath;
+    let chromeFlags = [
+      "--no-sandbox",
+      "--disable-setuid-sandbox",
+      "--disable-dev-shm-usage",
+      "--disable-web-security",
+      "--disable-features=VizDisplayCompositor",
+    ];
+
+    if (process.env.CHROME_PATH) {
+      // GitHub Actions 환경
+      chromePath = process.env.CHROME_PATH;
+      chromeFlags.push("--headless", "--disable-gpu");
+      console.log(`GitHub Actions Chrome 경로: ${chromePath}`);
     } else {
-      console.warn("토큰 파일이 없습니다. auth-setup.js를 먼저 실행하세요!");
+      // 로컬 환경 - Puppeteer Chrome 사용
+      try {
+        const puppeteer = require("puppeteer");
+        chromePath = puppeteer.executablePath();
+        console.log(`로컬 Puppeteer Chrome 경로: ${chromePath}`);
+      } catch (error) {
+        console.warn(
+          "Puppeteer를 찾을 수 없습니다. 시스템 Chrome을 사용합니다.",
+        );
+        chromePath = undefined;
+      }
     }
 
     const lighthouseConfig = {
       ci: {
         collect: {
-          url: [
-            "http://localhost:4173/onboarding",
-            // "http://localhost:4173/popup-list",
-            "http://localhost:4173/dashboard",
-          ],
+          url: ["http://localhost:4173/dashboard"],
+          puppeteerScript: "./scripts/lighthouse-puppeteer.js",
+          puppeteerLaunchOptions: {
+            executablePath: chromePath,
+            args: chromeFlags,
+            headless: true,
+          },
           settings: {
-            chromeFlags: [
-              "--no-sandbox",
-              "--disable-setuid-sandbox",
-              "--disable-dev-shm-usage",
-              "--disable-web-security",
-              "--disable-features=VizDisplayCompositor",
-            ],
-            extraHeaders: accessToken
-              ? JSON.stringify({
-                  Authorization: `Bearer ${accessToken}`,
-                })
-              : undefined,
             preset: "desktop",
             throttlingMethod: "provided",
             throttling: {

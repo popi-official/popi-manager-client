@@ -9,41 +9,64 @@ jobs:
     runs-on: ubuntu-latest
     if: contains(github.event.head_commit.message, '[perf]')
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: 체크아웃
+        uses: actions/checkout@v4
+
+      - name: Node.js 설치
+        uses: actions/setup-node@v4
         with:
           node-version: "20"
+          cache: "npm"
 
       - name: Chrome 설치
         run: |
-          wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-          sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
+          sudo apt-get update
+          sudo apt-get install -y wget gnupg
+          wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo gpg --dearmor -o /usr/share/keyrings/googlechrome-linux-keyring.gpg
+          echo "deb [arch=amd64 signed-by=/usr/share/keyrings/googlechrome-linux-keyring.gpg] http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee /etc/apt/sources.list.d/google-chrome.list
           sudo apt-get update
           sudo apt-get install -y google-chrome-stable
 
       - name: 의존성 설치
         run: |
-          npm install
+          npm ci
           npm install -g @lhci/cli
-          # scripts 폴더 의존성도 설치
           cd scripts && npm install
 
       - name: 앱 빌드 및 시작
         run: |
           npm run build 
           npm run preview &
-          npx wait-on http://localhost:4173
+          npx wait-on http://localhost:4173 --timeout 60000
+
+      - name: 디렉토리 구조 확인
+        run: |
+          echo "현재 디렉토리: $(pwd)"
+          echo "scripts 폴더 내용:"
+          ls -la scripts/
+          echo "루트 폴더 내용:"
+          ls -la
 
       - name: 인증 설정
         run: node scripts/auth-setup.js
+        env:
+          TEST_EMAIL: ${{ secrets.TEST_EMAIL }}
+          TEST_PASSWORD: ${{ secrets.TEST_PASSWORD }}
 
       - name: Lighthouse 설정 생성
         run: node scripts/generate-lighthouse-config.js
+        env:
+          CHROME_PATH: /usr/bin/google-chrome-stable
+
+      - name: 생성된 설정 확인
+        run: |
+          echo "Lighthouse 설정:"
+          cat lighthouserc.json
+          echo "토큰 파일 존재 여부:"
+          ls -la scripts/auth-token.json
 
       - name: Lighthouse CI 실행
         run: lhci autorun
         env:
-          TEST_EMAIL: ${{ secrets.TEST_EMAIL }}
-          TEST_PASSWORD: ${{ secrets.TEST_PASSWORD }}
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
           CHROME_PATH: /usr/bin/google-chrome-stable

@@ -1,0 +1,57 @@
+{
+  "ci": {
+    "collect": {
+      "url": [
+        "http://localhost:4173/popup-list"
+      ],
+      "puppeteerScript": "/Users/yeop/Desktop/LG_CNS_AM_Inspire_Camp/Final/popi-manager-client/scripts/lighthouse-puppeteer.js",
+      "settings": {
+        "chromeFlags": [
+          "--no-sandbox",
+          "--disable-setuid-sandbox",
+          "--disable-dev-shm-usage",
+          "--disable-web-security"
+        ],
+        "preset": "desktop",
+        "throttlingMethod": "provided",
+        "throttling": {
+          "rttMs": 0,
+          "throughputKbps": 0,
+          "cpuSlowdownMultiplier": 1
+        }
+      },
+      "numberOfRuns": 3
+    },
+    "assert": {
+      "assertions": {
+        "categories:performance": [
+          "warn",
+          {
+            "minScore": 0.8
+          }
+        ],
+        "categories:accessibility": [
+          "error",
+          {
+            "minScore": 0.8
+          }
+        ],
+        "categories:best-practices": [
+          "warn",
+          {
+            "minScore": 0.8
+          }
+        ],
+        "categories:seo": [
+          "warn",
+          {
+            "minScore": 0.8
+          }
+        ]
+      }
+    },
+    "upload": {
+      "target": "temporary-public-storage"
+    }
+  }
+}

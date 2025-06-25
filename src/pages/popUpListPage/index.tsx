@@ -1,6 +1,6 @@
 import "swiper/css";
 import "swiper/css/pagination";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
@@ -15,6 +15,7 @@ import check from "@/assets/webps/common/check.webp";
 import { usePopUpListReadApi } from "@/hooks/api/usePopUpListReadApi";
 import { usePopUpDeleteApi } from "@/hooks/api/usePopUpDeleteApi";
 import Loading from "@/components/ui/Loading";
+import { useAuthApi } from "@/hooks/api/useAuthApi";
 
 const PopUpListPage = () => {
   const { data, isLoading } = usePopUpListReadApi();
@@ -25,6 +26,7 @@ const PopUpListPage = () => {
   const [selectedCardId, setSelectedCardId] = useState<number | null>(null);
   const [isBeginning, setIsBeginning] = useState(true);
   const [isEnd, setIsEnd] = useState(false);
+  const { postRefreshMutation } = useAuthApi();
   const swiperRef = useRef<SwiperType | null>(null);
   const cards = data;
 
@@ -61,6 +63,12 @@ const PopUpListPage = () => {
     setIsBeginning(swiper.isBeginning);
     setIsEnd(swiper.isEnd);
   };
+
+  useEffect(() => {
+    if (!data) {
+      postRefreshMutation.mutate();
+    }
+  }, []);
 
   return (
     <div className="bg-gray03 min-h-screen pb-10 pt-10">
