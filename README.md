@@ -10,7 +10,7 @@
 
 PoP!은 운영자들이 이런 복잡한 과정을 쉽고 스마트하게 관리할 수 있도록 도와주는 서비스입니다.
 
-실시간 인기 상품 분석, 예약 기반 방문자 수 예측, 재고 알림 및 발주 지원 등 운영에 꼭 필요한 기능을 한곳에 모아 간편한 운영 환경을 제공합니다. </br></br>
+실시간 인기 상품 분석, 재고 알림 및 발주 지원 등 운영에 꼭 필요한 기능을 한곳에 모아 간편한 운영 환경을 제공합니다. </br></br>
 
 ## ✨ 주요 기능
 
@@ -18,11 +18,11 @@ PoP!은 운영자들이 이런 복잡한 과정을 쉽고 스마트하게 관리
 
 ![](https://github.com/ht3064/readme-image/blob/main/popi-server/dashboard.png?raw=true) </br></br>
 
-### 🛍️ 상품 등록부터 리스트 관리까지 한눈에 가능한 팝업 상품 관리
+### 🛍️ 상품 등록부터 리스트 관리까지 한눈에 보여주는 팝업 상품 관리
 
 ![](https://github.com/ht3064/readme-image/blob/main/popi-server/product-management.png?raw=true) </br></br>
 
-### 📦 재고 부족 시 알림부터 발주까지 한눈에 가능한 재고 관리
+### 📦 재고 부족 시 알림부터 발주까지 한눈에 보여주는 재고 관리
 
 ![](https://github.com/ht3064/readme-image/blob/main/popi-server/inventory-alert.png?raw=true) </br></br>
 
